@@ -1,23 +1,33 @@
-conda create -n braker3_v3.0.8_241029
+###################################################################################
+conda create -n braker3_v3.0.8_241029 braker3 hisat2 sra-tools bedtools gffread stringtie
+#bioconda/noarch::braker3-3.0.8-hdfd78af_0
+#bioconda/linux-64::augustus-3.5.0-pl5321h57ba348_8
+#bioconda/linux-64::hisat2-2.2.1-h503566f_8
+#bioconda/linux-64::diamond-2.1.12-h13889ed_3
+#bioconda/linux-64::exonerate-2.4.0-hf34a1b8_9
+#bioconda/linux-64::genomethreader-1.7.1-h503566f_7
+#bioconda/linux-64::sra-tools-3.2.1-h4304569_1
+#bioconda/linux-64::bedtools-2.31.1-h13024bc_3
+#bioconda/linux-64::gffread-0.12.7-h077b44d_6
+#bioconda/linux-64::stringtie-3.0.0-h29c0135_0
 
+###################################################################################
 source activate braker3_v3.0.8_241029
 
-conda install braker3
-#bioconda/noarch::braker3-3.0.8-hdfd78af_0
-#bioconda/linux-64::augustus-3.5.0-pl5321heb9362c_5
-
-conda install hisat2
-#bioconda/linux-64::hisat2-2.2.1-hdbdd923_6
-
 cd /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share
+
 git clone https://github.com/gatech-genemark/GeneMark-ETP.git
+git clone https://github.com/gatech-genemark/ProtHint.git
 
-vi /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/etc/conda/activate.d/GeneMark-ETP.sh
+vi /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/etc/conda/activate.d/export_path.sh
 export GENEMARK_PATH=/home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/GeneMark-ETP/bin
+export PROTHINT_PATH=/home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/ProtHint/bin
 
-vi /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/etc/conda/deactivate.d/GeneMark-ETP.sh
+vi /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/etc/conda/deactivate.d/export_path.sh
 unset GENEMARK_PATH
+unset PROTHINT_PATH
 
+###################################################################################
 cpan install Math::Utils
 cpan install Statistics::LineFit
 cpan install YAML
