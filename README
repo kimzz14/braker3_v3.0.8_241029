@@ -21,8 +21,7 @@ git clone https://github.com/gatech-genemark/GeneMark-ETP.git
 #replace spaln
 cd /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/GeneMark-ETP/bin/gmes/ProtHint/dependencies/
 mv spaln spaln.old
-cp /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/bin/spaln spaln.new
-ln -s spaln.new spaln
+cp /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/bin/spaln .
 
 #git clone https://github.com/gatech-genemark/ProtHint.git
 #cd /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/ProtHint/dependencies
