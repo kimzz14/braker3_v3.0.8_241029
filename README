@@ -1,5 +1,5 @@
 ###################################################################################
-conda create -n braker3_v3.0.8_241029 braker3 hisat2 sra-tools bedtools gffread stringtie
+conda create -n braker3_v3.0.8_241029 braker3 hisat2 sra-tools bedtools gffread stringtie spaln
 #bioconda/noarch::braker3-3.0.8-hdfd78af_0
 #bioconda/linux-64::augustus-3.5.0-pl5321h57ba348_8
 #bioconda/linux-64::hisat2-2.2.1-h503566f_8
@@ -17,15 +17,26 @@ source activate braker3_v3.0.8_241029
 cd /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share
 
 git clone https://github.com/gatech-genemark/GeneMark-ETP.git
-git clone https://github.com/gatech-genemark/ProtHint.git
+
+#replace spaln
+cd /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/GeneMark-ETP/bin/gmes/ProtHint/dependencies/
+mv spaln spaln.old
+cp /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/bin/spaln spaln.new
+ln -s spaln.new spaln
+
+#git clone https://github.com/gatech-genemark/ProtHint.git
+#cd /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/ProtHint/dependencies
+#rm spaln
+#cp /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/bin/spaln .
+
 
 vi /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/etc/conda/activate.d/export_path.sh
 export GENEMARK_PATH=/home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/GeneMark-ETP/bin
-export PROTHINT_PATH=/home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/ProtHint/bin
+#export PROTHINT_PATH=/home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/share/ProtHint/bin
 
 vi /home/kimzz14/program/anaconda3/envs/braker3_v3.0.8_241029/etc/conda/deactivate.d/export_path.sh
 unset GENEMARK_PATH
-unset PROTHINT_PATH
+#unset PROTHINT_PATH
 
 ###################################################################################
 cpan install Math::Utils
